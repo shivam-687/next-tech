@@ -13,7 +13,7 @@ const HeroSection = () => {
                         <h1 className='text-xl md:text-4xl '><span className='font-bold text-primary'>NextTech</span> <br></br> Your One-Stop Shop <br></br> for Cutting-Edge Technology</h1>
                         <p className='mt-3 text-xs md:text-base'>Find the latest gadgets and electronics at NextTech. Shop laptops, smartphones, drones, accessories, and more. Enjoy fast shipping, competitive prices, and expert customer service. Upgrade your tech game today!</p>
                         <div className="flex mt-10 lg:justify-start justify-center">
-                            <Link href="#" className='btn btn-primary '>Shop Now {' >'}</Link>
+                            <Link href="/shop" className='btn btn-primary '>Shop Now {' >'}</Link>
                         </div>
                     </div>
                 </div>
