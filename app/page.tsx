@@ -8,14 +8,9 @@ import ProductsTab from '@/components/ProductsTab'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export async function getProductsList(){
-  const products = await commerce.products.list();
-  return products;
-}
+
 
 const Home = async () => {
-  const p = await getProductsList();
-  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-5 md:px-10">
       
