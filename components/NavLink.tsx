@@ -53,7 +53,7 @@ const NavLink = (navLink: NavlinkItem) => {
     return (
         <>
             
-            <Link href={navLink.link||'#'} className={`btn ${checkRoute(pathname, navLink.link||'#') ? 'btn-outline':'btn-ghost'} btn-block md:btn-square`}>{navLink.lable}</Link>
+            <Link href={navLink.link||'#'} className={`btn ${checkRoute(pathname, navLink.link||'#') ? 'btn-outline':'btn-ghost'} w-full md:w-auto`}>{navLink.lable}</Link>
         </>
     )
 }
