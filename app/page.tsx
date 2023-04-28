@@ -5,9 +5,31 @@ import commerce from 'lib/commerce'
 import { nanoid } from 'nanoid'
 import FeaturedProductGrid from '@/components/product/FeaturedProductGrid'
 import ProductsTab from '@/components/ProductsTab'
+import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const metaContent = {
+  title: 'NextTech - Your Destination for the Latest Tech Innovations',
+  description: `Discover the latest and greatest tech innovations at NextTech. Shop our extensive selection of cutting-edge electronics, gadgets, and accessories. Stay ahead of the game with NextTech.`,
+  image: '/assets/page/shop-page.jpeg'
+}
+
+export const metadata: Metadata = {
+  title: metaContent.title,
+  description: metaContent.description,
+  twitter: {
+    title: metaContent.title,
+    description: metaContent.description,
+    images: metaContent.image
+  },
+  openGraph: {
+    title: metaContent.title,
+    description: metaContent.description,
+    images: metaContent.image
+  },
+
+}
 
 
 const Home = async () => {
