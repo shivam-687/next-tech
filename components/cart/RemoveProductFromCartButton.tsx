@@ -36,11 +36,6 @@ const RemoveProductFromCartButton = ({
       setLoading(false);
     }
   }
-
-  useEffect(() => {
-    console.log({cart});
-    
-  }, [cart])
   return (
     <button  title='Remove product' type="button" className='btn btn-sm btn-ghost ' onClick={remove}>
       {

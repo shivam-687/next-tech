@@ -18,6 +18,7 @@ const metaContent = {
 export const metadata: Metadata = {
   title: metaContent.title,
   description: metaContent.description,
+  metadataBase: new URL('http://localhost:3000'),
   twitter: {
     title: metaContent.title,
     description: metaContent.description,
@@ -41,7 +42,7 @@ const Home = async () => {
         <FeaturedProductGrid/>
 
         <div className="mt-20 w-full">
-        <ProductsTab/>
+        {/* <ProductsTab/> */}
         </div>
     </main>
   )

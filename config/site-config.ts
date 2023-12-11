@@ -1,4 +1,5 @@
 export const siteConfig = {
+    siteUrl: 'http://localhost:3000',
     name: 'NextTech',
     phone: '+91 7984226239',
     email: [

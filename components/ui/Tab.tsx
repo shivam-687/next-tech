@@ -2,6 +2,8 @@
 import React, { ReactNode, useState } from 'react'
 import SectionTitle from '../SectionTitle';
 import { nanoid } from 'nanoid';
+import { twMerge } from 'tailwind-merge';
+import Skeleton from 'react-loading-skeleton';
 
 
 export type TabItem = {
@@ -20,7 +22,9 @@ export type TabProps = {
     title?: string,
     subTitle?: string,
     tabPosition?: TabPosition,
-    loading?: boolean
+    loading?: boolean,
+    className?: string,
+    tabItemClassname?: string
 }
 
 
@@ -47,7 +51,9 @@ const Tab = ({
     tabPosition = 'left',
     title,
     subTitle,
-    loading
+    loading,
+    className,
+    tabItemClassname
 }: TabProps) => {
 
     const [activeTab, setActiveTab] = useState<TabItem | undefined>(getTabByKey(defaultKey, items));
@@ -73,12 +79,12 @@ const Tab = ({
                     <div className="tabs">
                         {
                             loading && Array(4).fill(null).map(() => {
-                                return <a className='tab' key={nanoid()}>loading</a>
+                                return <a className='tab' key={nanoid()}><Skeleton width={50} /></a>
                             })
                         }
                         {
                             !loading && items.map(tab => {
-                                return <a onClick={() => selectTab(tab.key)} key={tab.key} className={`tab ${(activeTab && activeTab.key === tab.key) ? 'tab-active' : ''}`}>{tab.lable}</a>
+                                return <a onClick={() => selectTab(tab.key)} key={tab.key} className={`tab ${tabItemClassname} ${(activeTab && activeTab.key === tab.key) ? 'tab-active' : ''}`}>{tab.lable}</a>
                             })
                         }
                     </div>

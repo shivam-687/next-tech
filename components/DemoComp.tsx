@@ -7,9 +7,9 @@ import CartSidebar from './cart/CartSidebar'
 const DemoComp = (props: PropsWithChildren) => {
     return (
         <div>
-            <CartInit/>
+            {/* <CartInit/> */}
             {props.children}
-            <CartSidebar/>
+            {/* <CartSidebar/> */}
         </div>
     )
 }

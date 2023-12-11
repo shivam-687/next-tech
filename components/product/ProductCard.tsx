@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid'
 import Link from 'next/link'
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import AddToCartButton from '../cart/AddToCartButton'
 
 export type ProductCardProps = {
     product: Product
@@ -20,7 +21,7 @@ const ProductCard = ({
     product
 }: ProductCardProps) => {
     return (
-        <div className='group hover:-translate-y-3 hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col'>
+        <div className='group hover:-translate-y-3 hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col relative pb-10'>
             <div className="aspect-card overflow-hidden  flex items-center relative">
                 <div className=" w-full h-2/3 bg-center  transition-all duration-200 bg-no-repeat bg-contain bg-white" style={{ backgroundImage: `url(${product.image?.url})` }}></div>
             </div>
@@ -32,6 +33,10 @@ const ProductCard = ({
                 <div>
                     <Link href={`/product/${product.permalink}`} className='text-primary'>{product.price.formatted_with_symbol}</Link>
                 </div>
+            </div>
+
+            <div className="absolute left-0 bottom-0 w-full ">
+                <AddToCartButton className='btn-block' product={product} />
             </div>
         </div>
     )

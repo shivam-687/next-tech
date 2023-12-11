@@ -7,6 +7,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import _debounce  from 'lodash.debounce';
 import { Cart } from '@chec/commerce.js/types/cart'
+import QuantityInput from '../QuantityInput'
 
 export type ProductQuantityInputProps = {
     lineItem: LineItem
@@ -26,7 +27,6 @@ const ProductQuantityInput = ({
         try {
             const res = await commerce.cart.update(lineItem.id, {quantity}) as any as Cart;
             setCart({...cart, data: res, loading: false})
-            // console.log({res});
             setLoading(false);
             toast(`qunatity changed successfully!`)
         } catch (error) {
@@ -35,19 +35,16 @@ const ProductQuantityInput = ({
         }
     }
 
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>|undefined) =>{
-        if(!e)  return;
-        setLocal(parseInt(e.currentTarget.value));
-        const numVal = parseInt(e.currentTarget.value);
-        if( Number.isNaN(numVal))return;
-        if(numVal <= 0) toast.error('Quantity must be at least 1');
-        void changeQuantity(parseInt(e.currentTarget.value))
-        console.log("valid")
+    const onChangeHandler = (value: number) =>{
+        if(value <= 0) toast.error('Quantity must be at least 1');
+        void changeQuantity(value)
+        // console.log("valid")
     }
 
 
+
   return (
-    <input disabled={loading} type='number' className='input' aria-label='product quantity' value={loacle} onChange={onChangeHandler} min={1} max={20} />
+    <QuantityInput loading={loading} size='sm' onValueChange={onChangeHandler} value={loacle} />
   )
 }
 
