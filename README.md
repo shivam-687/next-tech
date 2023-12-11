@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+![scrnli_12_11_2023_5-02-12 PM](https://github.com/shivam-687/next-tech/assets/75787732/53412c94-9d27-496e-a525-931b199c3143)
+
+![scrnli_12_11_2023_5-02-35 PM](https://github.com/shivam-687/next-tech/assets/75787732/3c2b4f1a-3f96-4f3a-846c-1e3d7868b895)
+
+
+# Next.js eCommerce Project
+
+## Overview
+
+This eCommerce project is built on Next.js, Prisma, Postgres, and Tailwind. It integrates with Commerce.js, a headless eCommerce CMS, to fetch product data and manage the eCommerce functionality.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Project Structure](#project-structure)
+- [Database](#database)
+- [Commerce.js Integration](#commercejs-integration)
+- [Tailwind CSS](#tailwind-css)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (v14 or higher)
+- npm or yarn
+- PostgreSQL
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Clone the repository and install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/your-username/ecommerce-nextjs.git
+cd ecommerce-nextjs
+npm install # or yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a `.env` file in the root directory with the following environment variables:
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+```env
+DATABASE_URL=postgres://your-username:your-password@localhost:5432/your-database
+COMMERCEJS_API_KEY=your-commercejs-api-key
+# Add other configuration variables as needed
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Migrate the database:
 
-## Learn More
+```bash
+npx prisma migrate dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+3. Run the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev # or yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Visit http://localhost:3000 to explore your eCommerce application.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+./
+|-- pages/           # Next.js pages
+|-- components/      # Reusable React components
+|-- api/             # API endpoints (optional)
+|-- prisma/          # Prisma database schema and migrations
+|-- public/          # Static assets
+|-- .env             # Environment variable configuration
+|-- next.config.js   # Next.js configuration
+|-- ...
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Customize the structure according to your project's specific needs.
+
+## Database
+
+This project uses PostgreSQL as the database. To make changes to the database schema, use Prisma migrations:
+
+```bash
+npx prisma migrate dev
+```
+
+## Commerce.js Integration
+
+Commerce.js is integrated to fetch product data and manage eCommerce functionalities. The integration details can be found in [commercejs.js](/path/to/commercejs.js) file.
+
+## Tailwind CSS
+
+Tailwind CSS is used for styling. The utility-first approach allows for easy customization. See [tailwind.config.js](/tailwind.config.js) for configuration details.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to contribute to this project.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+Replace placeholders like `your-username`, `your-password`, and `your-database` with your actual database credentials. Make sure to provide proper instructions for setting up and configuring Commerce.js in your project. Customize the sections as needed for your specific project.
