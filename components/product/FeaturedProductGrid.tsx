@@ -1,11 +1,14 @@
-import commerce from 'lib/commerce'
+
+
+import commerce, { fetchProducts } from 'lib/commerce'
 import React from 'react'
-import styles from './FeaturedProductGrid.module.css';
 import { nanoid } from 'nanoid';
 import FeaturedProduct from './FeaturedProduct';
 
-export async function getFeaturedProducts(){
-    const feturedProducts = await commerce.products.list({'category_slug': 'featured'});
+async function getFeaturedProducts(){
+    console.log("Fecthing featured products..." )
+    await fetchProducts();
+    const feturedProducts = await commerce.products.list();
     return feturedProducts;
 }
 

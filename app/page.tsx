@@ -1,8 +1,6 @@
-import Image from 'next/image'
+
 import { Inter } from 'next/font/google'
 import HeroSection from '@/components/landing-page/HeroSection'
-import commerce from 'lib/commerce'
-import { nanoid } from 'nanoid'
 import FeaturedProductGrid from '@/components/product/FeaturedProductGrid'
 import ProductsTab from '@/components/ProductsTab'
 import { Metadata } from 'next'
@@ -42,7 +40,7 @@ const Home = async () => {
         <FeaturedProductGrid/>
 
         <div className="mt-20 w-full">
-        {/* <ProductsTab/> */}
+        <ProductsTab/>
         </div>
     </main>
   )
